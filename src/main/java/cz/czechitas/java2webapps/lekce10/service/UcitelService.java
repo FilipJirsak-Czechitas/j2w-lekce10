@@ -5,9 +5,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UcitelService {
-  private final UcitelRepository ucitelRepository;
+    private final UcitelRepository ucitelRepository;
 
-  public UcitelService(UcitelRepository ucitelRepository) {
-    this.ucitelRepository = ucitelRepository;
-  }
+    public UcitelService(UcitelRepository ucitelRepository) {
+        this.ucitelRepository = ucitelRepository;
+    }
 }

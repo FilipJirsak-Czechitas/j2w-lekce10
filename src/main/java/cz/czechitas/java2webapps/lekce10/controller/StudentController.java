@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/student")
 public class StudentController {
-  private final StudentService studentService;
+    private final StudentService studentService;
 
-  public StudentController(StudentService studentService) {
-    this.studentService = studentService;
-  }
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
+    }
 }

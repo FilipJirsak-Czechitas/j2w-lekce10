@@ -16,7 +16,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,100 +24,100 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 @SpringBootTest
 public class DatabaseTest {
-  private final Logger logger = LoggerFactory.getLogger(DatabaseTest.class);
+    private final Logger logger = LoggerFactory.getLogger(DatabaseTest.class);
 
-  private final RodicRepository rodicRepository;
-  private final StudentRepository studentRepository;
-  private final TridaRepository tridaRepository;
-  private final UcitelRepository ucitelRepository;
+    private final RodicRepository rodicRepository;
+    private final StudentRepository studentRepository;
+    private final TridaRepository tridaRepository;
+    private final UcitelRepository ucitelRepository;
 
-  @Autowired
-  public DatabaseTest(RodicRepository rodicRepository, StudentRepository studentRepository, TridaRepository tridaRepository, UcitelRepository ucitelRepository) {
-    this.rodicRepository = rodicRepository;
-    this.studentRepository = studentRepository;
-    this.tridaRepository = tridaRepository;
-    this.ucitelRepository = ucitelRepository;
-  }
-
-  @Test
-  @Transactional
-  void testStudent() {
-    Student student = studentRepository.getOne(1);
-    logger.debug("Student s ID=1: {}", student);
-    assertAll(
-            () -> assertEquals(1, student.getId()),
-            () -> assertEquals("Michal", student.getJmeno()),
-            () -> assertEquals("Kubát", student.getPrijmeni())
-    );
-
-    assertEquals(2, student.getRodice().size());
-    for (Rodic rodic : student.getRodice()) {
-      logger.debug("Rodič: {}", rodic);
+    @Autowired
+    public DatabaseTest(RodicRepository rodicRepository, StudentRepository studentRepository, TridaRepository tridaRepository, UcitelRepository ucitelRepository) {
+        this.rodicRepository = rodicRepository;
+        this.studentRepository = studentRepository;
+        this.tridaRepository = tridaRepository;
+        this.ucitelRepository = ucitelRepository;
     }
 
-    Trida trida = student.getTrida();
-    logger.debug("Třída: {}", trida);
-    assertEquals("1.A", trida.getNazev());
-  }
+    @Test
+    @Transactional
+    void testStudent() {
+        Student student = studentRepository.getOne(1);
+        logger.debug("Student s ID=1: {}", student);
+        assertAll(
+                () -> assertEquals(1, student.getId()),
+                () -> assertEquals("Michal", student.getJmeno()),
+                () -> assertEquals("Kubát", student.getPrijmeni())
+        );
 
-  @Test
-  @Transactional
-  void testTrida() {
-    Trida trida = tridaRepository.getOne((short) 1);
-    logger.debug("Třída s ID=1: {}", trida);
+        assertEquals(2, student.getRodice().size());
+        for (Rodic rodic : student.getRodice()) {
+            logger.debug("Rodič: {}", rodic);
+        }
 
-    Ucitel ucitel = trida.getTridniUcitel();
-    logger.debug("Třídní učitel: {}", ucitel);
-
-    List<Student> studenti = trida.getStudenti();
-    for (Student student : studenti) {
-      logger.debug("Student ve třídě: {}", student);
+        Trida trida = student.getTrida();
+        logger.debug("Třída: {}", trida);
+        assertEquals("1.A", trida.getNazev());
     }
-  }
 
-  @Test
-  @Transactional
-  void testUcitel() {
-    Ucitel ucitel = ucitelRepository.getOne(1);
-    logger.debug("Učitel s ID=1: {}", ucitel);
+    @Test
+    @Transactional
+    void testTrida() {
+        Trida trida = tridaRepository.getOne((short) 1);
+        logger.debug("Třída s ID=1: {}", trida);
 
-    Trida trida = ucitel.getTrida();
-    logger.debug("Je třídní ve třídě: {}", trida);
-  }
+        Ucitel ucitel = trida.getTridniUcitel();
+        logger.debug("Třídní učitel: {}", ucitel);
 
-  @Test
-  @Transactional
-  void testUcitelNeniTridni() {
-    Ucitel ucitel = ucitelRepository.getOne(20);
-    logger.debug("Učitel s ID=20: {}", ucitel);
-
-    Trida trida = ucitel.getTrida();
-    assertNull(trida);
-  }
-
-  @Test
-  @Transactional
-  void testRodic() {
-    Rodic rodic = rodicRepository.getOne(1);
-    logger.debug("Rodič s ID=1: {}", rodic);
-
-    List<Student> deti = rodic.getDeti();
-    for (Student dite : deti) {
-      logger.debug("Dítě: {}", dite);
+        List<Student> studenti = trida.getStudenti();
+        for (Student student : studenti) {
+            logger.debug("Student ve třídě: {}", student);
+        }
     }
-    assertEquals(1, deti.size());
-  }
 
-  @Test
-  @Transactional
-  void testRodicDveDeti() {
-    Rodic rodic = rodicRepository.getOne(35);
-    logger.debug("Rodič s ID=1: {}", rodic);
+    @Test
+    @Transactional
+    void testUcitel() {
+        Ucitel ucitel = ucitelRepository.getOne(1);
+        logger.debug("Učitel s ID=1: {}", ucitel);
 
-    List<Student> deti = rodic.getDeti();
-    for (Student dite : deti) {
-      logger.debug("Dítě: {}", dite);
+        Trida trida = ucitel.getTrida();
+        logger.debug("Je třídní ve třídě: {}", trida);
     }
-    assertEquals(2, deti.size());
-  }
+
+    @Test
+    @Transactional
+    void testUcitelNeniTridni() {
+        Ucitel ucitel = ucitelRepository.getOne(20);
+        logger.debug("Učitel s ID=20: {}", ucitel);
+
+        Trida trida = ucitel.getTrida();
+        assertNull(trida);
+    }
+
+    @Test
+    @Transactional
+    void testRodic() {
+        Rodic rodic = rodicRepository.getOne(1);
+        logger.debug("Rodič s ID=1: {}", rodic);
+
+        List<Student> deti = rodic.getDeti();
+        for (Student dite : deti) {
+            logger.debug("Dítě: {}", dite);
+        }
+        assertEquals(1, deti.size());
+    }
+
+    @Test
+    @Transactional
+    void testRodicDveDeti() {
+        Rodic rodic = rodicRepository.getOne(35);
+        logger.debug("Rodič s ID=1: {}", rodic);
+
+        List<Student> deti = rodic.getDeti();
+        for (Student dite : deti) {
+            logger.debug("Dítě: {}", dite);
+        }
+        assertEquals(2, deti.size());
+    }
 }

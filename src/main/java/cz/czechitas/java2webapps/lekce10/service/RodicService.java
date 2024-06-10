@@ -5,9 +5,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class RodicService {
-  private final RodicRepository rodicRepository;
+    private final RodicRepository rodicRepository;
 
-  public RodicService(RodicRepository rodicRepository) {
-    this.rodicRepository = rodicRepository;
-  }
+    public RodicService(RodicRepository rodicRepository) {
+        this.rodicRepository = rodicRepository;
+    }
 }

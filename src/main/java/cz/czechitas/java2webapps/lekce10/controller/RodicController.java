@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/rodic")
 public class RodicController {
-  private final RodicService rodicService;
+    private final RodicService rodicService;
 
-  public RodicController(RodicService rodicService) {
-    this.rodicService = rodicService;
-  }
+    public RodicController(RodicService rodicService) {
+        this.rodicService = rodicService;
+    }
 }

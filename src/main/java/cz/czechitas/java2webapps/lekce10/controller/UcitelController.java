@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/ucitel")
 public class UcitelController {
-  private final UcitelService ucitelService;
+    private final UcitelService ucitelService;
 
-  public UcitelController(UcitelService ucitelService) {
-    this.ucitelService = ucitelService;
-  }
+    public UcitelController(UcitelService ucitelService) {
+        this.ucitelService = ucitelService;
+    }
 }
