@@ -14,8 +14,8 @@
         [#list tridy as trida]
             <tr>
                 <td>${trida.nazev}</td>
-                <td><a href="/ucitel/${trida.tridniUcitel.id}">${trida.tridniUcitel.celeJmeno}</a></td>
-                <td><a href="/trida/${trida.id}">Detail</a></td>
+                <td><a href="/ucitele/${trida.tridniUcitel.id}">${trida.tridniUcitel.celeJmeno}</a></td>
+                <td><a href="/tridy/${trida.id}"><i class="bi bi-arrow-right-square-fill"></i></a></td>
             </tr>
         [/#list]
         </tbody>

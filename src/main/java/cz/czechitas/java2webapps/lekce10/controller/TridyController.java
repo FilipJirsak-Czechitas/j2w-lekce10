@@ -28,6 +28,7 @@ public class TridyController {
     public ModelAndView detail(@PathVariable int id) {
         ModelAndView modelAndView = new ModelAndView("/tridy/detail");
         modelAndView.addObject("trida", tridyService.findById(id));
+        modelAndView.addObject("pocetStudentu", tridyService.studentCountById(id));
         return modelAndView;
     }
 }

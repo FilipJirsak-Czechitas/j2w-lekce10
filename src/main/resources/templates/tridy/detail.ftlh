@@ -1,8 +1,9 @@
 [#ftl]
 
 [@c.page title="Třída ${trida.nazev}"]
-    <h1>Třída ${trida.nazev}</h1>
-    <p>Třídní učitel: ${trida.tridniUcitel.celeJmeno}</p>
+    <h1>Třída: ${trida.nazev}</h1>
+    <p>Třídní učitel: <a href="/ucitele/${trida.tridniUcitel.id}">${trida.tridniUcitel.celeJmeno}</a></p>
+    <p>Počet studentů: ${pocetStudentu}</p>
     <table class="table">
         <thead>
         <tr>
@@ -16,7 +17,7 @@
             <tr>
                 <td>${student.prijmeni}</td>
                 <td>${student.jmeno}</td>
-                <td><a href="/student/${student.id}">Detail</a></td>
+                <td><a href="/studenti/${student.id}"><i class="bi bi-arrow-right-square-fill"></i></a></td>
             </tr>
         [/#list]
         </tbody>
