@@ -1,6 +1,6 @@
 package cz.czechitas.java2webapps.lekce10.controller;
 
-import cz.czechitas.java2webapps.lekce10.service.TridaService;
+import cz.czechitas.java2webapps.lekce10.service.TridyService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,26 +9,26 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/trida")
-public class TridaController {
+public class TridyController {
 
-    private final TridaService tridaService;
+    private final TridyService tridyService;
 
-    public TridaController(TridaService tridaService) {
-        this.tridaService = tridaService;
+    public TridyController(TridyService tridyService) {
+        this.tridyService = tridyService;
     }
 
     @GetMapping("")
     public ModelAndView index() {
-        ModelAndView modelAndView = new ModelAndView("/trida/index");
-        modelAndView.addObject("tridy", tridaService.findAll());
+        ModelAndView modelAndView = new ModelAndView("/tridy/index");
+        modelAndView.addObject("tridy", tridyService.findAll());
         return modelAndView;
     }
 
     @GetMapping("/{id}")
     public ModelAndView detail(@PathVariable int id) {
-        ModelAndView modelAndView = new ModelAndView("/trida/detail");
-        modelAndView.addObject("trida", tridaService.findById(id));
-        modelAndView.addObject("studenti", tridaService.getStudents(id));
+        ModelAndView modelAndView = new ModelAndView("/tridy/detail");
+        modelAndView.addObject("trida", tridyService.findById(id));
+        modelAndView.addObject("studenti", tridyService.getStudents(id));
         return modelAndView;
     }
 }

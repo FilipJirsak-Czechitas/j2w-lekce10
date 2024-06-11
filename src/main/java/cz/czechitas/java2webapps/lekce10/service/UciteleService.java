@@ -4,10 +4,10 @@ import cz.czechitas.java2webapps.lekce10.repository.UcitelRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UcitelService {
+public class UciteleService {
     private final UcitelRepository ucitelRepository;
 
-    public UcitelService(UcitelRepository ucitelRepository) {
+    public UciteleService(UcitelRepository ucitelRepository) {
         this.ucitelRepository = ucitelRepository;
     }
 }

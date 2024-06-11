@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class TridaService {
+public class TridyService {
     private final TridaRepository tridaRepository;
 
-    public TridaService(TridaRepository tridaRepository) {
+    public TridyService(TridaRepository tridaRepository) {
         this.tridaRepository = tridaRepository;
     }
 

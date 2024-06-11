@@ -4,10 +4,10 @@ import cz.czechitas.java2webapps.lekce10.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class StudentService {
+public class StudentiService {
     private final StudentRepository studentRepository;
 
-    public StudentService(StudentRepository studentRepository) {
+    public StudentiService(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
 }
