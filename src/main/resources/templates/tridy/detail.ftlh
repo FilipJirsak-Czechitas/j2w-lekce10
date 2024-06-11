@@ -1,7 +1,7 @@
 [#ftl]
 
 [@c.page title="Třída ${trida.nazev}"]
-    <h1>Třída: ${trida.nazev}</h1>
+    <h1>Třída: <strong>${trida.nazev}</strong></h1>
     <p>Třídní učitel: <a href="/ucitele/${trida.tridniUcitel.id}">${trida.tridniUcitel.celeJmeno}</a></p>
     <p>Počet studentů: ${pocetStudentu}</p>
     <table class="table">
