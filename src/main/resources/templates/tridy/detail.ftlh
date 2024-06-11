@@ -12,7 +12,7 @@
         </tr>
         </thead>
         <tbody>
-        [#list studenti as student]
+        [#list trida.studenti as student]
             <tr>
                 <td>${student.prijmeni}</td>
                 <td>${student.jmeno}</td>

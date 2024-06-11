@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/trida")
+@RequestMapping("/tridy")
 public class TridyController {
 
     private final TridyService tridyService;
@@ -28,7 +28,6 @@ public class TridyController {
     public ModelAndView detail(@PathVariable int id) {
         ModelAndView modelAndView = new ModelAndView("/tridy/detail");
         modelAndView.addObject("trida", tridyService.findById(id));
-        modelAndView.addObject("studenti", tridyService.getStudents(id));
         return modelAndView;
     }
 }

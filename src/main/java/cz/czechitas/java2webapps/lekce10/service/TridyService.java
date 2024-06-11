@@ -20,10 +20,7 @@ public class TridyService {
     }
 
     public Trida findById(int id) {
-        return tridaRepository.findById(id).get();
+        return tridaRepository.findById(id).orElse(null);
     }
 
-    public List<Student> getStudents(int id) {
-        return tridaRepository.findById(id).get().getStudenti();
-    }
 }

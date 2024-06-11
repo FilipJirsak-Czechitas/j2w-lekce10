@@ -31,10 +31,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    [@navbarLink text="Třídy" href="/trida" /]
-                    [@navbarLink text="Studenti" href="/student" /]
-                    [@navbarLink text="Učitelé" href="/ucitel" /]
-                    [@navbarLink text="Rodiče" href="/rodic" /]
+                    [@navbarLink text="Třídy" href="/tridy" /]
+                    [@navbarLink text="Studenti" href="/studenti" /]
+                    [@navbarLink text="Učitelé" href="/ucitele" /]
+                    [@navbarLink text="Rodiče" href="/rodice" /]
                 </ul>
             </div>
         </div>
