@@ -32,4 +32,4 @@
 
 ## Odkazy
 
-* [Lekce 10](https://java.czechitas.cz/2024-jaro/java-2-online/lekce-10.html)
+* [Lekce 10](https://java.czechitas.cz/2025-jaro/java-2-online/lekce-10.html)
